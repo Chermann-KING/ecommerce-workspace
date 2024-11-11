@@ -100,6 +100,12 @@ export class AuthService {
     this.router.navigate(['/auth/login']);
   }
 
+  async requestPasswordReset(email: string): Promise<void> {
+    // Simulation de la requête
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // TODO: faire un appel API
+  }
+
   private checkStoredAuth() {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
