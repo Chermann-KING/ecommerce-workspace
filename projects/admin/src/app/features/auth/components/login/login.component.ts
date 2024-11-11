@@ -26,6 +26,11 @@ export class LoginComponent {
     });
   }
 
+  showError(fieldName: string): boolean {
+    const field = this.loginForm.get(fieldName);
+    return field ? field.invalid && (field.dirty || field.touched) : false;
+  }
+
   async onSubmit() {
     if (this.loginForm.valid) {
       this.isLoading = true;
@@ -33,10 +38,16 @@ export class LoginComponent {
         await this.authService.login(this.loginForm.value);
       } catch (error) {
         console.error('Login error:', error);
-        // TODO: Ajouter un toast/notification d'erreur
+        // TODO: Ajouter une notification d'erreur
       } finally {
         this.isLoading = false;
       }
+    } else {
+      // Marque tous les champs comme touchés pour afficher les erreurs
+      Object.keys(this.loginForm.controls).forEach((key) => {
+        const control = this.loginForm.get(key);
+        control?.markAsTouched();
+      });
     }
   }
 }
