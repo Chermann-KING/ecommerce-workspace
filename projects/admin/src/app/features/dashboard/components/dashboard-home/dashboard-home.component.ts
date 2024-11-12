@@ -3,10 +3,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-dashboard-home',
   standalone: true,
-  imports: [],
-  templateUrl: './dashboard-home.component.html',
-  styleUrl: './dashboard-home.component.css'
+  template: `
+    <div class="p-4">
+      <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+        <p class="text-black dark:text-white">Contenu du dashboard</p>
+      </div>
+    </div>
+  `,
 })
-export class DashboardHomeComponent {
-
-}
+export class DashboardHomeComponent {}
