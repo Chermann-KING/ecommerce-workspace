@@ -1,6 +1,11 @@
 import { Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { User, LoginCredentials, AuthResponse } from '../../types/auth.types';
+import {
+  User,
+  LoginCredentials,
+  RegisterCredentials,
+  AuthResponse,
+} from '../../types/auth.types';
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +27,41 @@ export class AuthService {
 
   get isLoading() {
     return this.isLoadingSignal();
+  }
+
+  async register(credentials: RegisterCredentials): Promise<void> {
+    try {
+      this.isLoadingSignal.set(true);
+
+      // Simulons un délai d'appel API
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // Vérification simple de l'email (simulation)
+      if (credentials.email === 'admin@test.com') {
+        throw new Error('Cet email est déjà utilisé');
+      }
+
+      // Dans un vrai service, on ferait un appel API ici
+      const mockUser: User = {
+        id: Date.now().toString(),
+        email: credentials.email,
+        firstName: credentials.firstName,
+        lastName: credentials.lastName,
+        role: 'ADMIN',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
+
+      // Simulons le stockage (dans un vrai cas, ce serait fait côté serveur)
+      console.log('Nouvel utilisateur créé:', mockUser);
+
+      // Redirection vers la page de connexion
+      await this.router.navigate(['/auth/login']);
+    } catch (error) {
+      throw error;
+    } finally {
+      this.isLoadingSignal.set(false);
+    }
   }
 
   // async login(credentials: LoginCredentials) {
