@@ -1,55 +1,49 @@
-import {
-  LayoutDashboard,
-  ShoppingBag,
-  List,
-  PlusCircle,
-  Tags,
-  ShoppingCart,
-  Users,
-  Settings,
-} from 'lucide-angular';
-
-import { MenuItem } from '../types/layout.types';
+export interface MenuItem {
+  iconName: string;
+  label: string;
+  route?: string;
+  children?: MenuItem[];
+}
 
 export const MENU_ITEMS: MenuItem[] = [
   {
-    icon: LayoutDashboard,
+    iconName: 'layout-dashboard',
     label: 'Dashboard',
     route: '/dashboard',
   },
   {
-    icon: ShoppingBag,
+    iconName: 'shopping-bag',
     label: 'Produits',
     children: [
       {
-        icon: List,
+        iconName: 'list',
         label: 'Liste des produits',
         route: '/products',
       },
       {
-        icon: PlusCircle,
+        iconName: 'plus-circle',
         label: 'Ajouter un produit',
         route: '/products/create',
       },
       {
-        icon: Tags,
+        iconName: 'tags',
         label: 'Catégories',
         route: '/products/categories',
       },
     ],
   },
   {
-    icon: ShoppingCart,
+    iconName: 'shopping-cart',
     label: 'Commandes',
     route: '/orders',
   },
   {
-    icon: Users,
+    iconName: 'users',
     label: 'Clients',
     route: '/customers',
   },
   {
-    icon: Settings,
+    iconName: 'settings',
     label: 'Paramètres',
     route: '/settings',
   },
