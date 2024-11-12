@@ -33,7 +33,7 @@ export class AuthService {
     try {
       this.isLoadingSignal.set(true);
 
-      // Simulons un délai d'appel API
+      // Simulation un délai d'appel API
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       // Vérification simple de l'email (simulation)
@@ -41,6 +41,7 @@ export class AuthService {
         throw new Error('Cet email est déjà utilisé');
       }
 
+      // Simulation user
       // Dans un vrai service, on ferait un appel API ici
       const mockUser: User = {
         id: Date.now().toString(),
@@ -52,7 +53,7 @@ export class AuthService {
         updatedAt: new Date(),
       };
 
-      // Simulons le stockage (dans un vrai cas, ce serait fait côté serveur)
+      // Simulation le stockage de l'user
       console.log('Nouvel utilisateur créé:', mockUser);
 
       // Redirection vers la page de connexion
