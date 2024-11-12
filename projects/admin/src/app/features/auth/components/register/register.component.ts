@@ -68,10 +68,15 @@ export class RegisterComponent {
         this.toastService.success(
           'Inscription réussie ! Vous pouvez maintenant vous connecter.'
         );
-      } catch (error) {
-        this.toastService.error(
-          "Une erreur est survenue lors de l'inscription."
-        );
+      } catch (error: any) {
+        // Ajout du type any pour pouvoir accéder au message
+        // Message d'erreur personnalisé en fonction de l'erreur
+        const errorMessage =
+          error.message === 'Cet email est déjà utilisé'
+            ? 'Cet email est déjà utilisé. Veuillez en choisir un autre.'
+            : "Une erreur est survenue lors de l'inscription.";
+
+        this.toastService.error(errorMessage);
       } finally {
         this.isLoading = false;
       }
