@@ -11,25 +11,31 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
   imports: [RouterOutlet, NgClass, NavbarComponent, SidebarComponent],
   template: `
     <div
-      class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-150"
+      class="min-h-screen  bg-gray-50 dark:bg-gray-900 transition-colors duration-150"
     >
-      <!-- Navbar -->
       <app-navbar class="fixed top-0 left-0 right-0 z-10"></app-navbar>
 
       <!-- Sidebar -->
       <app-sidebar
         [class.translate-x-0]="layoutService.isSidebarOpen"
         [class.-translate-x-full]="!layoutService.isSidebarOpen"
-        class="fixed left-0 top-[64px] bottom-0 w-64 transition-transform duration-300 ease-in-out z-20"
+        [class.w-64]="!layoutService.isSidebarCollapsed"
+        [class.w-20]="layoutService.isSidebarCollapsed"
+        class="fixed left-0 top-[64px] bottom-0 transition-all duration-300 ease-in-out z-20"
       >
       </app-sidebar>
 
       <!-- Main Content -->
       <main
-        [class.ml-64]="layoutService.isSidebarOpen"
-        class="pt-[64px] min-h-screen transition-[margin] duration-300 ease-in-out"
+        [class.ml-64]="
+          layoutService.isSidebarOpen && !layoutService.isSidebarCollapsed
+        "
+        [class.ml-20]="
+          layoutService.isSidebarOpen && layoutService.isSidebarCollapsed
+        "
+        class="pt-[64px] min-h-screen transition-all duration-300 ease-in-out"
       >
-        <div class="p-4 dark:text-gray-100">
+        <div class="p-4">
           <router-outlet></router-outlet>
         </div>
       </main>

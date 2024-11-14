@@ -6,8 +6,9 @@ export interface MenuItem {
   permission?: string; // Pour la gestion des permissions
 }
 
-export interface LayoutState {
+interface LayoutState {
   isSidebarOpen: boolean;
+  isSidebarCollapsed: boolean;
   isMobileMenuOpen: boolean;
-  theme: 'light' | 'dark'; // Theme switching
+  theme: 'light' | 'dark';
 }

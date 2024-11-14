@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   template: `
     <div class="flex items-center gap-2">
       <span class="text-xl font-bold text-gray-900 dark:text-white"
-        >Admin E-commerce</span
+        >CK Shop - Admin</span
       >
     </div>
   `,

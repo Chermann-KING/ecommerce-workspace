@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
+import { LucideAngularModule } from 'lucide-angular';
 import {
-  LucideAngularModule,
   Menu,
   Sun,
   Moon,
@@ -14,6 +14,13 @@ import {
   PlusCircle,
   Users,
   Bell,
+  PanelLeft,
+  PanelLeftClose,
+  PanelLeftOpen,
+  PanelRight,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-angular';
 
 const icons = {
@@ -30,6 +37,13 @@ const icons = {
   PlusCircle,
   Users,
   Bell,
+  PanelLeft,
+  PanelLeftOpen,
+  PanelLeftClose,
+  PanelRight,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
 };
 
 @NgModule({
