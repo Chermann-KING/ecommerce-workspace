@@ -21,6 +21,10 @@ import {
   ChevronDown,
   ChevronLeft,
   ChevronRight,
+  LogOut,
+  Edit,
+  Key,
+  X,
 } from 'lucide-angular';
 
 const icons = {
@@ -44,6 +48,10 @@ const icons = {
   ChevronDown,
   ChevronLeft,
   ChevronRight,
+  LogOut,
+  Edit,
+  Key,
+  X,
 };
 
 @NgModule({
