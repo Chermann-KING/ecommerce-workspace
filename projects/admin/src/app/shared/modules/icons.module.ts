@@ -27,6 +27,8 @@ import {
   X,
   Loader2,
   Save,
+  EyeOff,
+  Eye,
 } from 'lucide-angular';
 
 const icons = {
@@ -56,6 +58,8 @@ const icons = {
   X,
   Loader2,
   Save,
+  EyeOff,
+  Eye,
 };
 
 @NgModule({
