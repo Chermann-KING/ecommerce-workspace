@@ -25,6 +25,8 @@ import {
   Edit,
   Key,
   X,
+  Loader2,
+  Save,
 } from 'lucide-angular';
 
 const icons = {
@@ -52,6 +54,8 @@ const icons = {
   Edit,
   Key,
   X,
+  Loader2,
+  Save,
 };
 
 @NgModule({
